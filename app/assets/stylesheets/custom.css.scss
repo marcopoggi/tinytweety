@@ -1,0 +1,124 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+// mixins, variables, etc
+
+$dark-light: #2c2c2c;
+
+// global
+
+body {
+    padding-top: 60px;
+}
+
+section {
+    overflow: auto;
+}
+
+textarea {
+    resize: none;
+}
+
+.center {
+    text-align: center;
+}
+
+/* typography */
+
+h1 {
+    font-size: 3em;
+    letter-spacing: -2px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: bold;
+    color: $dark-light;
+}
+
+h2 {
+    font-size: 1.2em;
+    letter-spacing: -1px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: normal;
+    color: $dark-light;
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.7em;
+}
+
+/* header */
+
+#logo {
+    float: left;
+    margin-right: 10px;
+    font-size: 1.7em;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    padding-top: 9px;
+    font-weight: bold;
+
+    &:hover {
+        color: #fff;
+        text-decoration: none;
+    }
+}
+
+//app
+
+.app-container {
+    min-height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// footer
+
+footer {
+    border-top: 1px solid rgb(46, 46, 46);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 100px;
+    padding: 5px;
+    font-weight: bold;
+    color: rgb(36, 36, 36);
+
+    a {
+        color: rgb(48, 48, 48);
+
+        &:hover {
+            color: rgb(58, 58, 58);
+        }
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        height: 50px;
+    }
+
+    ul {
+        padding: 0;
+        display: flex;
+        list-style: none;
+        justify-content: space-around;
+        align-items: center;
+        width: 200px;
+        height: 30px;
+        margin-bottom: 0;
+    }
+
+    li {
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
