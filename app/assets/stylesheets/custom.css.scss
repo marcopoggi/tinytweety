@@ -6,6 +6,12 @@
 
 $dark-light: #2c2c2c;
 
+@mixin box_sizing {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 // global
 
 body {
@@ -69,7 +75,7 @@ p {
 //app
 
 .app-container {
-    min-height: 75vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -120,4 +126,56 @@ footer {
         justify-content: center;
         align-items: center;
     }
+}
+
+//profile-dashboard
+
+.profile-dashboard {
+    // background-color: gray;
+    display: flex;
+    flex-flow: row nowrap;
+    min-height: 90vh;
+    width: 100%;
+
+    .profile-information {
+        // background-color: yellow;
+        padding: 10px;
+        width: 20%;
+        max-height: 90vh;
+        display: flex;
+        flex-flow: column nowrap;
+        text-align: center;
+        justify-content: flex-start;
+        align-items: center;
+        border-right: 2px solid #122;
+    }
+
+    .profile-publications {
+        // background-color: rgb(9, 255, 0);
+        padding: 10px;
+        width: 80%;
+        min-height: 90vh;
+        display: flex;
+        flex-flow: column nowrap;
+        text-align: center;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .user-gravatar{
+        border-radius: 50%;
+        border: 4px solid #122;
+        box-shadow: 0 0 6px #122;
+    }
+}
+
+
+
+//debug params
+.debug_dump {
+    clear: both;
+    float: left;
+    width: 100%;
+    margin-top: 45px;
+    @include box_sizing;
 }
