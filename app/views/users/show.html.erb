@@ -1,0 +1,9 @@
+<%provide(:title,@user.name)%>
+<div class="profile-dashboard">
+  <section class="profile-information">
+    <%= gravatar_for @user%>
+    <h3><%= @user.name%></h3>
+  </section>
+  <section class="profile-publications">
+  </section>
+</div>
