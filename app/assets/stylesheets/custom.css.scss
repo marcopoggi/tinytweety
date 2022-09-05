@@ -160,6 +160,10 @@ footer {
         text-align: center;
         justify-content: flex-start;
         align-items: center;
+
+        .alert-success{
+            width: 100%;
+        }
     }
 
     .user-gravatar {
