@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      flash[:success] = "🙋‍♀️ Welcome to TinyTweety"
+      redirect_to @user #GET /users/:id
     else
       render :new, status: 403
     end
