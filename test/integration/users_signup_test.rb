@@ -40,5 +40,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
 
     assert_template "users/show"
+
+    assert_select "div.alert-success", text: "🙋‍♀️ Welcome to TinyTweety"
   end
 end
