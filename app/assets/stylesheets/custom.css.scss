@@ -162,7 +162,7 @@ footer {
         align-items: center;
     }
 
-    .user-gravatar{
+    .user-gravatar {
         border-radius: 50%;
         border: 4px solid #122;
         box-shadow: 0 0 6px #122;
@@ -178,4 +178,62 @@ footer {
     width: 100%;
     margin-top: 45px;
     @include box_sizing;
+}
+
+//register form
+.signup-container {
+    @include box_sizing;
+    text-align: center;
+    // background-color: grey;
+    width: 100%;
+
+    .signup-container-form {
+        // background-color: orange;
+        width: 100%;
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        .new_user {
+            // background-color: green;
+            display: flex;
+            flex-flow: column nowrap;
+            gap: 5px;
+            width: 40%;
+
+            .signup-input {
+                width: 100%;
+                padding: 6px;
+                border: none;
+                background-color: rgba(211, 211, 211, 0.8);
+                outline: none;
+                border-bottom: 4px solid $dark-light;
+                margin-bottom: 5px;
+                
+            }
+
+            label {
+                width: 100%;
+                text-align: left;
+            }
+
+            .signup-error{
+                width: 100%;
+                font-weight: bold;
+                font-size: 1.1em;
+                letter-spacing: 1px;
+                color: rgb(219, 20, 20);
+                margin-bottom: 5px;
+            }
+
+        }
+
+        input {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+
+    }
 }
