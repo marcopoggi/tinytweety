@@ -1,4 +1,17 @@
-<div>
-  <h1>Sessions#new</h1>
-  <p>Find me in app/views/sessions/new.html.erb</p>
+<% provide(:title, "Log in")%>
+<div class="sign-container">
+  <h1>Log in</h1>
+  <p>Log in to start using tinytweety</p>
+  <div class="sign-container-form">
+    <%= form_for :session, url:login_path, html: {class:"sign-form"} do |f|%>
+      <%= f.label :email %>
+      <%= f.email_field :email, class:"sign-input"%>
+      <%= f.label :password %>
+      <%= f.password_field :password, class:"sign-input" %>
+      <%= f.submit "Log in", class: "btn btn-primary"%>
+    <% end %>
+    <div>
+    </div>
+    <span>You don't have an account? <%= link_to "Sign up", signup_path%> now!</span>
+  </div>
 </div>
