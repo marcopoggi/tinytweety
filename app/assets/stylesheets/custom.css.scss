@@ -77,8 +77,14 @@ p {
 .app-container {
     min-height: 90vh;
     display: flex;
+    flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+
+    .alert{
+        width: 40%;
+        text-align: center;
+    }
 }
 
 // footer
@@ -161,7 +167,7 @@ footer {
         justify-content: flex-start;
         align-items: center;
 
-        .alert-success{
+        .alert-success {
             width: 100%;
         }
     }
@@ -185,28 +191,28 @@ footer {
 }
 
 //register form
-.signup-container {
+.sign-container {
     @include box_sizing;
     text-align: center;
     // background-color: grey;
     width: 100%;
 
-    .signup-container-form {
+    .sign-container-form {
         // background-color: orange;
         width: 100%;
         display: flex;
-
+        flex-flow: column nowrap;
         justify-content: center;
         align-items: center;
 
-        .new_user {
+        .sign-form {
             // background-color: green;
             display: flex;
             flex-flow: column nowrap;
             gap: 5px;
             width: 40%;
 
-            .signup-input {
+            .sign-input {
                 width: 100%;
                 padding: 6px;
                 border: none;
@@ -214,7 +220,7 @@ footer {
                 outline: none;
                 border-bottom: 4px solid $dark-light;
                 margin-bottom: 5px;
-                
+
             }
 
             label {
@@ -222,7 +228,7 @@ footer {
                 text-align: left;
             }
 
-            .signup-error{
+            .sign-error {
                 width: 100%;
                 font-weight: bold;
                 font-size: 1.1em;
@@ -231,11 +237,17 @@ footer {
                 margin-bottom: 5px;
             }
 
+
+
         }
 
         input {
             font-size: 1.2em;
             font-weight: bold;
+        }
+
+        span {
+            margin-top: 5px;
         }
 
 
