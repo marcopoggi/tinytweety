@@ -24,7 +24,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
 
     assert_template "users/new"
     #message errors
-    assert_select "span.signup-error"
+    assert_select "span.sign-error"
   end
 
   test "valid signup information" do
@@ -40,7 +40,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
 
     assert_template "users/show"
-
+    assert is_logged_in?
     assert_select "div.alert-success", text: "🙋‍♀️ Welcome to TinyTweety"
   end
 end
