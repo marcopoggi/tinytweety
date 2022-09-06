@@ -7,8 +7,8 @@ Rails.application.routes.draw do
 
   # auth
   get "login" => "sessions#new"
-  get "login" => "sessions#create"
-  get "logout" => "sessions#destroy"
+  post "login" => "sessions#create"
+  delete "logout" => "sessions#destroy"
 
   resources :users
 end
