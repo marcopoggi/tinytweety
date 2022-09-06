@@ -24,7 +24,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
 
     assert_template "users/new"
     #message errors
-    assert_select "span.signup-error"
+    assert_select "span.sign-error"
   end
 
   test "valid signup information" do
