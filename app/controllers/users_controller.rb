@@ -17,6 +17,11 @@ class UsersController < ApplicationController
       render :new, status: 403
     end
   end
+  
+  def edit
+    @user = User.find(params[:id])
+  end
+  
 
   private
 
