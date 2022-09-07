@@ -17,4 +17,25 @@ class ActiveSupport::TestCase
   def is_logged_in?
     !session[:user_id].nil?
   end
+
+  def log_in_as(user, options = {})
+    password = options[:password] || "password"
+    remember_me = options[:remember_me] || "1"
+
+    if is_integration_test?
+      #login with POST request
+      post login_path, params: { session: { email: user.email,
+                                           password: password,
+                                           remember_me: remember_me } }
+    else
+      #assign id mannualy
+      session[:user_id] = user.id
+    end
+  end
+
+  private
+
+  def is_integration_test?
+    defined?(post)
+  end
 end
