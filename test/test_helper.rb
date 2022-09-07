@@ -24,8 +24,8 @@ class ActiveSupport::TestCase
 
     if is_integration_test?
       #login with POST request
-      post login_path, session: { email: user.email,
-                                  password: password,
+      post login_path, params: { session: { email: user.email,
+                                           password: password,
                                   remember_me: remember_me }
     else
       #assign id mannualy
