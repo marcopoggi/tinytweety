@@ -31,7 +31,14 @@ module SessionsHelper
     !current_user.nil?
   end
 
+  def forget(user)
+    user.forget_token #reset attribute remember_digest
+    cookies.delete(:user_id)
+    cookies.delete(:remember_token)
+  end
+
   def log_out
+    forget(current_user)
     session.delete(:user_id)
     @current_user = nil
   end
