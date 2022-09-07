@@ -26,7 +26,7 @@ class ActiveSupport::TestCase
       #login with POST request
       post login_path, params: { session: { email: user.email,
                                            password: password,
-                                  remember_me: remember_me }
+                                           remember_me: remember_me } }
     else
       #assign id mannualy
       session[:user_id] = user.id
