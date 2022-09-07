@@ -8,6 +8,10 @@
       <%= f.email_field :email, class:"sign-input"%>
       <%= f.label :password %>
       <%= f.password_field :password, class:"sign-input" %>
+      <%= f.label :remember_me do%>
+        <%= f.check_box :remember_me%>
+        <span>Remember password</span>
+      <% end %>
       <%= f.submit "Log in", class: "btn btn-primary"%>
     <% end %>
     <div>
