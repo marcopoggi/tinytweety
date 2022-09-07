@@ -10,5 +10,9 @@ Rails.application.routes.draw do
   post "login" => "sessions#create"
   delete "logout" => "sessions#destroy"
 
+  
   resources :users
+
+  #settings
+  get "users/:id/settings/account", to:"users#edit", as: "settings_account_user"
 end
