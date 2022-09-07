@@ -57,4 +57,14 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
   test "authenticated method should return false for a user with nil digest token" do
     assert_not @user.authenticated?("")
   end
+
+  test "login with remember password" do
+    log_in_as(@user, remember_me: "1")
+    assert_not_nil cookies["remember_token"]
+  end
+
+  test "login without remember password" do
+    log_in_as(@user, remember_me: "0")
+    assert_nil cookies["remember_token"]
+  end
 end
