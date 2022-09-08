@@ -12,6 +12,9 @@ class UsersEditTest < ActionDispatch::IntegrationTest
 
     @valid_user_data = { user: { name: "anonymus edited", email: "valid@gmail.com",
                                 password: "passwordupdated", password_confirmation: "passwordupdated" } }
+
+    #create a session
+    log_in_as(@user)
   end
 
   test "account edition failed or invalid" do
