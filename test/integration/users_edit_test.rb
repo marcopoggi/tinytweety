@@ -12,12 +12,12 @@ class UsersEditTest < ActionDispatch::IntegrationTest
 
     @valid_user_data = { user: { name: "anonymus edited", email: "valid@gmail.com",
                                 password: "passwordupdated", password_confirmation: "passwordupdated" } }
-
-    #create a session
-    log_in_as(@user)
   end
 
   test "account edition failed or invalid" do
+    #create a session
+    log_in_as(@user)
+
     get settings_account_user_path(@user)
     assert_template "users/edit"
 
@@ -26,6 +26,9 @@ class UsersEditTest < ActionDispatch::IntegrationTest
   end
 
   test "account edition successful(name and email)" do
+    #create a session
+    log_in_as(@user)
+
     get settings_account_user_path(@user)
     assert_template "users/edit"
 
@@ -44,6 +47,9 @@ class UsersEditTest < ActionDispatch::IntegrationTest
   end
 
   test "account edition only email" do
+    #create a session
+    log_in_as(@user)
+
     get settings_account_user_path(@user)
     assert_template "users/edit"
 
@@ -61,6 +67,9 @@ class UsersEditTest < ActionDispatch::IntegrationTest
   end
 
   test "account edition only name" do
+    #create a session
+    log_in_as(@user)
+
     get settings_account_user_path(@user)
     assert_template "users/edit"
 
@@ -78,6 +87,9 @@ class UsersEditTest < ActionDispatch::IntegrationTest
   end
 
   test "account edition successful(name and email and password)" do
+    #create a session
+    log_in_as(@user)
+
     get settings_account_user_path(@user)
     assert_template "users/edit"
 
@@ -95,5 +107,15 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     assert_equal @user.name, name
     assert_equal @user.email, email
     assert @user.authenticate(password)
+  end
+
+  test "successful edition with friendly redirection" do
+    get settings_account_user_path(@user)
+    log_in_as(@user)
+    assert_redirected_to settings_account_user_path(@user)
+
+    patch user_path(@user), params: @valid_user_data
+    assert_not flash.empty?
+    assert_redirected_to @user
   end
 end
