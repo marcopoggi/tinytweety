@@ -41,6 +41,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
 
     assert_template "users/show"
     assert is_logged_in?
-    assert_select "div.alert-success", text: "🙋‍♀️ Welcome to TinyTweety"
+    assert_select "div.alert-success>span", text: "🙋‍♀️ Welcome to TinyTweety"
+    assert_select "div.alert-success>button.popup-close", text: "❌"
   end
 end
