@@ -1,0 +1,27 @@
+<div class="settings-account-form">
+  <%= form_for(user) do |f|%>
+    <% if user.errors.any?%>
+      <span class="msg-error"><%= user.errors.full_messages[0] %> </span>
+    <% end %>
+    <%= f.label :name, class:"field-container" do%>
+      <h3>Update name</h3>
+      <%= f.text_field :name%>
+    <%end%>
+    <%= f.label :email, class:"field-container" do%>
+      <h3>Update email</h3>
+      <%= f.email_field :email%>
+    <%end%>
+    <div class="fields-container">
+      <h3>Update password</h3>
+      <%= f.label :password, class:"field-container" do%>
+        <span>New password</span>
+        <%= f.password_field :password%>
+      <%end%>
+      <%= f.label :password_confirmation, class:"field-container" do%>
+        <span>Confirm password</span>
+        <%= f.password_field :password_confirmation%>
+      <%end%>
+    </div>
+    <%= f.submit "Save Changes", class: "btn btn-success save-changes" %>
+  <% end %>
+</div>
