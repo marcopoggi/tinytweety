@@ -1,0 +1,10 @@
+<% provide(:title, 'Users') %>
+<section class="users-section">
+  <h1>Users</h1>
+  <div class="divider"></div>
+  <%= paginate @users%>
+  <ul class="users">
+    <%= render @users%>
+  </ul>
+  <%= paginate @users %>
+</section>

@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
-  before_action(:logged_in_user, only: [:edit, :update])
+  before_action(:signup_in_session, only: :new)
   before_action(:correct_user, only: [:edit, :update])
+  before_action(:logged_in_user, only: [:index, :edit, :update])
+
+  def index
+    @users = User.order(:name).page(params[:page]).per(15)
+  end
 
   def show
     @user = User.find(params[:id])
@@ -53,5 +58,12 @@ class UsersController < ApplicationController
   def correct_user
     @user = User.find(params[:id])
     redirect_to root_url unless current_user?(@user)
+  end
+
+  def signup_in_session
+    if logged_in?
+      flash[:danger] = "Log out to register a new account"
+      redirect_to root_url, status: 302
+    end
   end
 end
