@@ -5,3 +5,8 @@ anonymus:
   name: Anonymus Example
   email: anonymus@example.com
   password_digest: <%= User.digest('password') %>
+
+random:
+  name: Random Name
+  email: random@example.com
+  password_digest: <%= User.digest('password') %>

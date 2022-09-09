@@ -19,12 +19,16 @@ module SessionsHelper
     elsif (user_id = cookies.signed[:user_id])
       #search user & verify the signed token in the cookie
       user = User.find_by(id: user_id)
-                 #User Model method
+      #User Model method
       if user && user.authenticated?(cookies[:remember_token])
         log_in(user)
         @current_user = user
       end
     end
+  end
+
+  def current_user?(user)
+    current_user == user
   end
 
   def logged_in?
@@ -41,5 +45,14 @@ module SessionsHelper
     forget(current_user)
     session.delete(:user_id)
     @current_user = nil
+  end
+
+  def redirect_back_or(other_path = "/")
+    redirect_to(session[:destination_url] || other_path)
+    session.delete(:destination_url) if request.original_url == session[:destination_url]
+  end
+
+  def store_location
+    session[:destination_url] = request.url if request.get?
   end
 end

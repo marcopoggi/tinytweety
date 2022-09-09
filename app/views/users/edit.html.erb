@@ -1,0 +1,15 @@
+<section class="settings-account-container">
+  <%= render 'settings' %>
+  <section class="settings-account-section">
+    <div class="settings-section-description">
+      <h2>Account Information</h2>
+      <p>Here you can manage and modify your data, keep in mind that,
+        to make any changes to sensitive data, you will be asked to authenticate again.</p>
+    </div>
+    <div class="edit_gravatar">
+      <%= gravatar_for @user %>
+      <a href="http://gravatar.com/emails" target="_blank">Change</a>
+    </div>
+    <%= render 'editform', user: @user %>
+  </section>
+</section>
