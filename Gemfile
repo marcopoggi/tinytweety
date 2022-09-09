@@ -8,6 +8,9 @@ gem "rails", "~> 7.0.3", ">= 7.0.3.1"
 
 gem "bootstrap-sass", "~> 3.3", ">= 3.3.6"
 
+#pagination
+gem "kaminari", "1.2.2"
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
