@@ -1,5 +1,7 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+User.create!(name: "root", email: "root@email.com",
+             password: "root1234", password_confirmation: "root1234", admin: true)
 
 99.times do |n|
   name = Faker::Name.name
