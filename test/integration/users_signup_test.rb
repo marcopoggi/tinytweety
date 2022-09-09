@@ -11,6 +11,8 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                     email: "user@valid.com",
                     password: "pass1234",
                     password_confirmation: "pass1234" }
+
+    @user_to_log_in = users(:anonymus)
   end
 
   test "invalid signup information" do
@@ -43,5 +45,12 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert is_logged_in?
     assert_select "div.alert-success>span", text: "🙋‍♀️ Welcome to TinyTweety"
     assert_select "div.alert-success>button.popup-close", text: "❌"
+  end
+
+  test "should be close session if want register" do
+    log_in_as(@user_to_log_in)
+    get signup_path
+    assert_redirected_to root_path
+    assert_not flash.empty?
   end
 end
