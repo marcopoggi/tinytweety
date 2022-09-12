@@ -3,22 +3,30 @@ anonymus:
   name: Anonymus Example
   email: anonymus@example.com
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 random:
   name: Random Name
   email: random@example.com
   password_digest: <%= User.digest('password') %>
   admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 random_b:
   name: Random B. Name
   email: randomb@example.com
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 random_c:
   name: Random C. Name
   email: randomc@example.com
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 
 <% 15.times do |n| %>
@@ -26,4 +34,6 @@ user_<%= n %>:
   name:  <%= "#{n}-user"%>
   email: <%= "user-#{n}@example.com" %>
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 <% end %>
