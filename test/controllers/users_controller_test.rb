@@ -42,4 +42,19 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     get users_path
     assert_redirected_to login_url
   end
+
+  test "should redirect to login if you try to destroy without login" do
+    assert_no_difference "User.count" do
+      delete user_url(@user)
+    end
+    assert_redirected_to login_url
+  end
+
+  test "should redirect to root when trying to destroy user without being admin" do
+    log_in_as(@user) #no admin
+    assert_no_difference "User.count" do
+      delete user_url(@user)
+    end
+    assert_redirected_to root_path
+  end
 end
