@@ -19,9 +19,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in(@user)
-      flash[:success] = "🙋‍♀️ Welcome to TinyTweety"
-      redirect_to @user #GET /users/:id
+      # log_in(@user)
+      # send activation email
+      @user.send_activation_email
+      flash[:info] = "Please active your account, check email: #{@user.email})"
+      redirect_to root_url
     else
       render :new, status: 403
     end
