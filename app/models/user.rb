@@ -1,8 +1,9 @@
 class User < ApplicationRecord
   include BCrypt
-  attr_accessor :remember_token
+  attr_accessor :remember_token, :activation_token
 
   before_save { self.email = email.downcase }
+  before_create :create_activation_digest
 
   #in case email or name has blank
   before_validation :define_empty_fields, on: :update
@@ -47,5 +48,10 @@ class User < ApplicationRecord
   def define_empty_fields
     self.email = email_was if email.blank?
     self.name = name_was if name.blank?
+  end
+
+  def create_activation_digest
+    self.activation_token = User.new_token
+    self.activation_digest = User.digest(activation_token)
   end
 end
