@@ -20,7 +20,7 @@ module SessionsHelper
       #search user & verify the signed token in the cookie
       user = User.find_by(id: user_id)
       #User Model method
-      if user && user.authenticated?(cookies[:remember_token])
+      if user && user.authenticated?(:remember,cookies[:remember_token])
         log_in(user)
         @current_user = user
       end
