@@ -31,9 +31,10 @@ class User < ApplicationRecord
   end
 
   #return true if token matches with remember_digest
-  def authenticated?(remember_token)
-    return false if remember_digest.nil?
-    Password.new(remember_digest) == remember_token
+  def authenticated?(attribute, token)
+    digest = self.send("#{attribute}_digest")
+    return false if digest.nil?
+    Password.new(digest) == token
   end
 
   def forget_token
