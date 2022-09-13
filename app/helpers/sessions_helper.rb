@@ -49,7 +49,7 @@ module SessionsHelper
 
   def redirect_back_or(other_path = "/")
     redirect_to(session[:destination_url] || other_path)
-    session.delete(:destination_url) if request.original_url == session[:destination_url]
+    session.delete(:destination_url)
   end
 
   def store_location
