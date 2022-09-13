@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   include BCrypt
-  attr_accessor :remember_token, :activation_token
+  attr_accessor :remember_token, :activation_token, :reset_token
 
   before_save { self.email = email.downcase }
   before_create :create_activation_digest
@@ -35,7 +35,7 @@ class User < ApplicationRecord
   def authenticated?(attribute, token)
     digest = self.send("#{attribute}_digest")
     return false if digest.nil?
-    Password.new(digest) == token
+    Password.new(digest).is_password?(token)
   end
 
   def forget_token
@@ -51,6 +51,21 @@ class User < ApplicationRecord
   #send activation
   def send_activation_email
     UserMailer.account_activation(self).deliver_now
+  end
+
+  # set password reset attrs
+  def create_reset_digest
+    self.reset_token = User.new_token
+    self.update(reset_digest: User.digest(reset_token), reset_sent_at: Time.zone.now)
+  end
+
+  #send password reset email
+  def send_password_reset_email
+    UserMailer.password_reset(self).deliver_now
+  end
+
+  def password_token_reset_expired?
+    self.reset_sent_at < 1.hours.ago
   end
 
   #Private methods
