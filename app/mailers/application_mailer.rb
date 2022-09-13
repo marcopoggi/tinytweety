@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "noreply@tinytweety.com"
+  default from: Rails.application.credentials.mailer.email
   layout "mailer"
 end
