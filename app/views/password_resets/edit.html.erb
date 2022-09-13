@@ -9,7 +9,9 @@
       <%= f.password_field :password, class:"sign-input"%>
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, class:"sign-input"%>
-      <span class="sign-error"><%= @user.errors.full_messages[0] %> </span>
+      <% if @user.errors.any? %>
+        <span class="sign-error"><%= @user.errors.full_messages[0] %> </span>
+      <% end %>
       <%= f.submit "Change password", class: "btn btn-primary"%>
     <% end %>
   </div>
