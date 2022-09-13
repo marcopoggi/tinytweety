@@ -7,7 +7,7 @@ class PasswordResetsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(email: params[:password_reset][:email])
+    @user = User.find_by(email: params[:password_reset][:email].downcase)
     if @user
       @user.create_reset_digest
       @user.send_password_reset_email
@@ -25,6 +25,7 @@ class PasswordResetsController < ApplicationController
   def update
     if params[:user][:password].empty?
       @user.errors.add(:password, "can't be empty")
+      render :edit, status: 400
     elsif @user.update(user_params)
       log_in(@user)
       flash[:success] = "🔒 Password changed"
@@ -41,7 +42,7 @@ class PasswordResetsController < ApplicationController
   end
 
   def get_user
-    @user = User.find_by(email: params[:email])
+    @user = User.find_by(email: params[:email].downcase)
   end
 
   def valid_user
