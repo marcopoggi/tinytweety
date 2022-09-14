@@ -206,6 +206,86 @@ footer {
         justify-content: flex-start;
         align-items: center;
 
+        h3 {
+            width: 65%;
+            text-align: center;
+            font-size: 2em;
+        }
+
+        h5{
+            width: 65%;
+            text-align: left;
+            padding: 6px;
+            font-size: 1.3em;
+        }
+
+        .posts {
+            padding: 6px;
+            width: 65%;
+            list-style: none;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            margin: 0;
+
+            li {
+                width: 100%;
+                border-radius: 6px;
+                background-color: rgba(8, 100, 136, 0.801);
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                flex-flow: row nowrap;
+                gap: 6px;
+                color: #FFF;
+
+                .avatar-bg{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: rgb(32, 32, 32);
+                    padding: 6px;
+                    border-top-left-radius: 6px;
+                    border-bottom-left-radius: 6px;
+                    min-height: 100px;
+                }
+
+                .post-info {
+                    padding: 6px;
+                    display: flex;
+                    flex-flow: column nowrap;
+                    justify-content: center;
+                    align-items: flex-start;
+                    width: 100%;
+
+                    .user {
+                        font-weight: bold;
+
+                        a {
+                            text-decoration: none;
+                            color: #FFF;
+                        }
+                    }
+
+                    .content {
+                        font-size: 1.2em;
+                    }
+
+                    .timestamp {
+                        font-weight: bold;
+                    }
+                }
+
+
+            }
+        }
+
+        .pagination {
+            width: 65%;
+        }
+
         .alert-success {
             width: 100%;
         }
