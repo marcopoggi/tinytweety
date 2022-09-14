@@ -5,5 +5,13 @@
     <h3><%= @user.name%></h3>
   </section>
   <section class="profile-publications">
+    <%if @user.posts.any? %>
+      <h3>Publications</h3>
+      <h5>Number of posts: <%= @user.posts.count%></h5>
+      <ul class="posts">
+        <%= render @posts%>
+      </ul>
+      <%= paginate @posts%>
+    <% end %>
   </section>
 </div>
