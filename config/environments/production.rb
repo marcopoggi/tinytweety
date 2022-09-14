@@ -68,7 +68,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
-    domain: "https://tinytweety.herokuapp.com/",
+    domain: "tinytweety.herokuapp.com",
     user_name: Rails.application.credentials.mailer.email,
     password: Rails.application.credentials.mailer.pass,
     authentication: "plain",
@@ -76,6 +76,7 @@ Rails.application.configure do
     open_timeout: 5,
     read_timeout: 5,
   }
+  config.action_mailer.default_url_options = { :host => "tinytweety.herokuapp.com", protocol:"https" }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
