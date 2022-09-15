@@ -2,7 +2,7 @@ FROM ruby:3.1-alpine
 	
 ARG BUILD_PACKAGES="build-base"
 ARG DEV_PACKAGES="postgresql-dev nodejs yarn"
-ARG RUBY_PACKAGES="bash tzdata git"
+ARG RUBY_PACKAGES="bash tzdata git imagemagick"
 
 RUN apk update && apk upgrade && \
     apk add --update --no-cache \
