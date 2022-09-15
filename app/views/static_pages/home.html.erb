@@ -1,11 +1,11 @@
 <div class="home-container">
   <% if logged_in? %>
     <div class="home-login">
-      <%= render 'home_login' %>
+      <%= render 'static_pages/home_login' %>
     </div>
   <%else%>
     <div class="home-logout">
-      <%= render 'home_signup' %>
+      <%= render 'static_pages/home_signup' %>
     </div>
   <%end%>
 </div>
