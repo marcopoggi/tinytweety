@@ -69,6 +69,11 @@ class User < ApplicationRecord
     self.reset_sent_at < 1.hours.ago
   end
 
+  #Posts
+  def feed
+    Post.where("user_id = ?", self.id)
+  end
+
   #Private methods
   private
 
