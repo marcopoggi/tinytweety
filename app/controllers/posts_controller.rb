@@ -7,6 +7,7 @@ class PostsController < ApplicationController
       flash[:info] = "✅ Post created"
       redirect_to root_path
     else
+      @feed_posts = current_user.feed.take(3)
       render "static_pages/home", status: 400
     end
   end
