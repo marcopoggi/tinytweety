@@ -1,5 +1,9 @@
 class StaticPagesController < ApplicationController
   def home
+    if logged_in?
+      @post = current_user.posts.build
+      @feed_posts = current_user.feed.take(3)
+    end
   end
 
   def help
