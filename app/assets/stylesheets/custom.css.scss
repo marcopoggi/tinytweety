@@ -196,10 +196,34 @@ p {
                         align-self: flex-end;
                     }
 
-                    input {
-                        margin: 2px 6px;
-                        width: 10%;
-                        align-self: flex-end;
+                    .form-actions {
+                        // background-color: red;
+                        min-height: 40px;
+                        padding: 4px;
+                        width: 100%;
+                        display: flex;
+                        gap: 1em;
+                        justify-content: flex-end;
+                        align-items: center;
+
+                        .label-upload-container {
+                            margin: 0;
+                            padding: 0;
+                            // background-color: green;
+                            height: 2em;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            input {
+                                display: none;
+                            }
+
+                            .file-upload-btn {
+                                cursor: pointer;
+                                font-size: 2em;
+                            }
+                        }
                     }
                 }
 
@@ -321,6 +345,7 @@ footer {
 
 }
 
+
 .posts {
     padding: 6px;
     width: 65%;
@@ -332,98 +357,40 @@ footer {
     gap: 5px;
     margin: 0;
 
-    .posts {
-        padding: 6px;
-        width: 65%;
-        list-style: none;
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: center;
-        align-items: center;
-        gap: 5px;
-        margin: 0;
-
-        li {
-            width: 100%;
-            border-radius: 6px;
-            background-color: rgba(8, 100, 136, 0.801);
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            flex-flow: row nowrap;
-            gap: 6px;
-            color: #FFF;
-
-            .avatar-bg {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background-color: rgb(32, 32, 32);
-                padding: 6px;
-                border-top-left-radius: 6px;
-                border-bottom-left-radius: 6px;
-                min-height: 100px;
-            }
-
-            .post-info {
-                padding: 6px;
-                display: flex;
-                flex-flow: column nowrap;
-                justify-content: center;
-                align-items: flex-start;
-                width: 100%;
-
-                .user {
-                    font-weight: bold;
-
-                    a {
-                        text-decoration: none;
-                        color: #FFF;
-                    }
-                }
-
-                .content {
-                    font-size: 1.2em;
-                }
-
-                .timestamp {
-                    font-weight: bold;
-                }
-            }
-
-
-        }
-    }
-
     li {
         width: 100%;
         border-radius: 6px;
-        background-color: rgba(8, 100, 136, 0.801);
+        background: #222;
+
         display: flex;
         justify-content: center;
         align-items: flex-start;
         flex-flow: row nowrap;
         gap: 6px;
+        min-height: 150px;
         color: #FFF;
 
         .avatar-bg {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
-            background-color: rgb(32, 32, 32);
-            padding: 6px;
-            border-top-left-radius: 6px;
-            border-bottom-left-radius: 6px;
-            min-height: 100px;
+            padding: 12px;
+            height: inherit;
         }
 
         .post-info {
             padding: 6px;
             display: flex;
             flex-flow: column nowrap;
-            justify-content: center;
+            justify-content: space-around;
             align-items: flex-start;
+            min-height: 150px;
             width: 100%;
+
+            .post-content {
+                width: 100%;
+                text-align: left;
+            }
 
             .user {
                 font-weight: bold;
@@ -436,16 +403,41 @@ footer {
 
             .content {
                 font-size: 1.2em;
+                display: flex;
+                // background-color: green;
+                padding: 3px 0;
+                flex-flow: column nowrap;
+                justify-self: flex-start;
+                justify-content: flex-start;
+                align-items: flex-start;
+                width: 100%;
+
+                img {
+                    margin-top: 4px;
+                    border-radius: 4px;
+                }
             }
+
+
 
             .timestamp {
                 font-weight: bold;
             }
         }
 
+        .post-actions{
+            // background-color: rgb(141, 135, 135);
+            padding: 6px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-width: 30px;
+            font-weight: bold;
+        }
 
     }
 }
+
 
 .profile-information {
     // background-color: yellow;
