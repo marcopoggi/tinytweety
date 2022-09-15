@@ -1,0 +1,17 @@
+<section class="posts">
+  <%= render "shared/post_form"%>
+  <div class="user-posts">
+    <span><strong>My last activity</strong></span>
+    <div class="divider"></div>
+    <section class="home-feed">
+      <%if @feed_posts.any? %>
+        <ul class="posts">
+          <%= render @feed_posts %>
+        </ul>
+      <%end%>
+    </section>
+    <span><strong>Recently</strong></span>
+    <div class="divider"></div>
+    <section class="home-recently"></section>
+  </div>
+</section>
