@@ -11,8 +11,8 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
     get user_path(@user)
     assert_template "users/show"
     assert_select "title", full_title(@user.name) #name | TinyTweety
-    assert_select "section.profile-information>h3", text: @user.name
-    assert_select "section.profile-information>img.user-gravatar"
+    assert_select "section.profile-information>h1", text: @user.name
+    assert_select "section.profile-information>a>img.user-gravatar"
     assert_match @user.posts.count.to_s, response.body
     assert_select "nav.pagination"
 
