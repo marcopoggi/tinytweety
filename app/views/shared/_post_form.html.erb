@@ -1,0 +1,12 @@
+<%= form_for(@post, html:{class:"post-form"}) do |f| %>
+  <div class="avatar">
+    <%= link_to gravatar_for(current_user, size:50), current_user %>
+  </div>
+  <div class="form-area">
+    <div class="field">
+      <%= f.text_area :content, placeholder: "Tell us something..." %>
+    </div>
+    <span class="sign-error"><%= @post.errors.full_messages[0] %> </span>
+    <%= f.submit "Post", class: "btn btn-primary" %>
+  </div>
+<% end %>
