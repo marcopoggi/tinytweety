@@ -3,10 +3,15 @@
     <%=link_to gravatar_for(post.user, size: 50), post.user %>
   </div>
   <div class="post-info">
-    <span class="user"><%= link_to post.user.name, post.user%></span>
-    <p class="content">
-      <%= post.content%>
-    </p>
+    <div class="post-content">
+      <span class="user"><%= link_to post.user.name, post.user%></span>
+      <p class="content">
+        <%= post.content%>
+        <% if post.image.attached?%>
+          <%= image_tag post.image, width:"220px"%>
+        <%end%>
+      </p>
+    </div>
     <small class="timestamp">Posted <%= time_ago_in_words(post.created_at) %> ago.</small>
   </div>
   <div class="post-actions">
