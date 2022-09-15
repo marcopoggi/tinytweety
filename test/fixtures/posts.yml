@@ -26,3 +26,23 @@ post_<%= n %>:
   created_at: <%= 10.days.ago %>
   user: anonymus
 <% end %>
+
+ants:
+  content: <%= Faker::Lorem.sentence(word_count:5) %>
+  created_at: <%= 2.years.ago %>
+  user: random
+
+zone:
+  content: <%= Faker::Lorem.sentence(word_count:5) %>
+  created_at: <%= 3.days.ago %>
+  user: random_b
+
+tone:
+  content: <%= Faker::Lorem.sentence(word_count:5) %>
+  created_at: <%= 10.minutes.ago %>
+  user: random_b
+
+van:
+  content: <%= Faker::Lorem.sentence(word_count:5) %>
+  created_at: <%= 4.hours.ago %>
+  user: random_b
