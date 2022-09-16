@@ -15,8 +15,18 @@ User.create!(name: "root", email: "root@email.com",
   User.create!(user_data)
 end
 
-users = User.order(:created_at).take(5) 
+users = User.order(:created_at).take(5)
 50.times do |n|
   content = Faker::Lorem.sentence(word_count: 5)
   users.each { |user| user.posts.create!(content: content) }
 end
+
+#Following relations
+users = User.all
+user_a = users.first
+
+following = users[2..30]
+followed = users[10..40]
+
+following.each { |followed| user_a.follow(followed) }
+followed.each { |follower| follower.follow(user_a) }

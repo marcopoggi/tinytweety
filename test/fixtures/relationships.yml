@@ -1,0 +1,14 @@
+one:
+  follower: anonymus
+  followed: random
+two:
+  follower: anonymus
+  followed: random_b
+
+three:
+  follower: random
+  followed: anonymus
+
+four:
+  follower: rancom_c
+  followed: anonymus
