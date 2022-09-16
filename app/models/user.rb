@@ -84,6 +84,19 @@ class User < ApplicationRecord
     Post.where("user_id = ?", self.id)
   end
 
+  #Follow Actions
+  def following?(other_user)
+    self.following.include?(other_user)
+  end
+
+  def follow(other_user)
+    self.active_relationships.create(followed_id: other_user.id)
+  end
+
+  def unfollow(other_user)
+    self.active_relationships.find_by(followed_id: other_user.id).destroy
+  end
+
   #Private methods
   private
 
