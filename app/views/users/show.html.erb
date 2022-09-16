@@ -1,6 +1,6 @@
 <%provide(:title,@user.name)%>
 <div class="profile-dashboard">
-  <%= render partial: "shared/user_info", locals:{user: @user}%>
+  <%= render partial: "shared/user_info"%>
   <section class="profile-publications">
     <%if @user.posts.any? %>
       <h3>Publications</h3>
