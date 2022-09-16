@@ -1,6 +1,7 @@
-<% user_data = user ? user : current_user%>
+<% @user||= current_user%>
 <section class="profile-information">
-  <%= link_to gravatar_for(user_data), user_data %>
-  <h1><%= user_data.name %></h1>
-  <h4><%= pluralize(user_data.posts.count.to_s, "post")%></h4>
+  <%= link_to gravatar_for(@user), @user %>
+  <h1><%= @user.name %></h1>
+  <%= render 'users/follow_form' if logged_in?%>
+  <%= render 'shared/user_stats' %>
 </section>
