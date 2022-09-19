@@ -53,7 +53,7 @@ class UserTest < ActiveSupport::TestCase
     duplicate_user.email = @user.email.upcase
 
     @user.save
-    
+
     assert_not duplicate_user.valid?
   end
 
@@ -92,5 +92,26 @@ class UserTest < ActiveSupport::TestCase
     assert user_b.followers.include?(user_a)
     user_a.unfollow(user_b)
     assert_not user_a.following?(user_b)
+  end
+
+  test "my feed should contain the posts of the users I follow" do
+    anonymus = users(:anonymus)
+    random = users(:random)
+    random_c = users(:random_c)
+
+    #anonymus follow -> random
+    random.posts.each do |post_following|
+      assert anonymus.feed.include?(post_following)
+    end
+
+    #my own posts
+    anonymus.posts.each do |my_post|
+      assert anonymus.feed.include?(my_post)
+    end
+
+    #anonymus unfollow -> random_c
+    random_c.posts.each do |post_unfollowed|
+      assert_not anonymus.feed.include?(post_unfollowed)
+    end
   end
 end
