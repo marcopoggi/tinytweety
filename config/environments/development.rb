@@ -37,22 +37,19 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  host = "localhost:3000"
-  config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.perform_caching = false
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.perform_caching = false
+  config.action_mailer.default_url_options = { protocol: 'http', host: 'localhost:3000' }
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    domain:"heroku.com",
-    port: 587,
-    user_name: Rails.application.credentials.mailer.email,
-    password: Rails.application.credentials.mailer.pass,
-    authentication: "plain",
-    enable_starttls_auto: true,
+    address:              ENV['SMTP_ADDRESS'],
+    port:                 ENV['SMTP_PORT'],
+    user_name:            ENV['SMTP_USER_NAME'],
+    password:             ENV['SMTP_PASSWORD'],
+    authentication:       ENV['SMTP_AUTHENTICATION'],
+    enable_starttls_auto: ENV['SMTP_ENABLE_STARTTLS_AUTO'],
   }
-
-  config.action_mailer.default_url_options = { :host => host }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

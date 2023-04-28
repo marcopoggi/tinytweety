@@ -62,21 +62,19 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "app_production"
 
-  config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_caching = true
+  config.action_mailer.default_url_options = { protocol: ENV['HOST_PROTOCOL'], host: ENV['HOST_URL_WITHOUT_PROTOCOL'] }
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    domain: "tinytweety.herokuapp.com",
-    user_name: Rails.application.credentials.mailer.email,
-    password: Rails.application.credentials.mailer.pass,
-    authentication: "plain",
-    enable_starttls_auto: true,
-    open_timeout: 5,
-    read_timeout: 5,
+    address:              ENV['SMTP_ADDRESS'],
+    port:                 ENV['SMTP_PORT'],
+    user_name:            ENV['SMTP_USER_NAME'],
+    password:             ENV['SMTP_PASSWORD'],
+    authentication:       ENV['SMTP_AUTHENTICATION'],
+    enable_starttls_auto: ENV['SMTP_ENABLE_STARTTLS_AUTO'],
   }
-  config.action_mailer.default_url_options = { :host => "tinytweety.herokuapp.com", protocol:"https" }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
