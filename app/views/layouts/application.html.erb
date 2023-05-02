@@ -1,31 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= full_title(yield(:title)) %></title>
+    <title>App</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
+
   <body>
-    <%= render "layouts/header"%>
-    <div class="app-container">
-      <% flash.each do |msg_type, message|%>
-        <div class="alert alert-<%= msg_type%> popup-container" id="popup-message">
-          <span><%= message %></span>
-          <button class="popup-close" onclick="closePopup()">❌</button>
-        </div>
-      <% end %>
-      <%= yield %>
-    </div>
-    <%= render "layouts/footer"%>
-    <%= debug(params) if Rails.env.development? %>
+    <%= yield %>
   </body>
-  <script>
-    function closePopup() {
-      popup = document.getElementById("popup-message");
-      popup.classList.add("hidden")
-    }
-  </script>
 </html>

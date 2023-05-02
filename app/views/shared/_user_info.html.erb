@@ -1,7 +1,0 @@
-<% @user||= current_user%>
-<section class="profile-information">
-  <%= link_to gravatar_for(@user), @user %>
-  <h1><%= @user.name %></h1>
-  <%= render 'users/follow_form' if logged_in?%>
-  <%= render 'shared/user_stats' %>
-</section>
