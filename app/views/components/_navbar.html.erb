@@ -1,6 +1,19 @@
-<div class="text-warning nav position-fixed bottom-0 start-0 bg-dark col-2 p-0 m-0 w-100 d-flex justify-content-evenly align-items-center fs-2 border-top border-secondary">
-  <%= nav_item(path: root_path, active_controller_name: 'main', icon_class: 'house') %>
-  <%= nav_item(path: '#', active_controller_name: '#', icon_class: 'search') %>
-  <%= nav_item(path: notifications_path, active_controller_name: 'notifications', icon_class: 'bell') %>
-  <%= nav_item(path: "#", active_controller_name: '#', icon_class: 'envelope') %>
-</div>
+<div class="custom--navbar text-warning nav bg-black fs-3 border-top border-secondary">
+  <%= nav_item(path: root_path, controller_target: 'main', icon: 'house') %>
+  <%= nav_item(path: explore_path, controller_target: 'search', icon: 'search') %>
+  <%= nav_item(path: notifications_path, controller_target: 'notifications', icon: 'bell') %>
+  <%= nav_item(path: messages_path, controller_target: 'messages', icon: 'envelope') %>
+</div> 
+
+<%# <div class="tooltip custom--navbar-tooltip bs-tooltip-auto fade show"
+     role="tooltip"
+     id="tooltip124824"
+     style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate(562px, -56px);"
+     data-popper-placement="top">
+  <div class="tooltip-arrow"
+       style="position: absolute; left: 0px; transform: translate(39px);">
+  </div>
+  <div class="tooltip-inner">
+    Messages
+  </div>
+</div> %>

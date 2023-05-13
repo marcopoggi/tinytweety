@@ -1,0 +1,63 @@
+.custom--navbar {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	padding: .25em 0;
+	margin: 0;
+	width: 100%;
+	max-height: 500px;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-evenly;
+	align-items: center;
+
+	.nav-item {
+		width: 100%;
+
+		&:hover {
+			cursor: pointer;
+
+			.nav-icon {
+				background-color: var(--bs-gray-800);
+				border-radius: 100%;
+			}
+		}
+
+		.nav-link {
+			padding: 0;
+			margin: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.nav-icon {
+			padding: 0.5em;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+
+}
+
+// addons
+.custom--icon-search-fill {
+	text-shadow: 0 0 2px var(--bs-warning);
+	font-weight: bold;
+}
+
+.custom--navbar-tooltip {
+	--bs-tooltip-bg: var(--bs-gray-600);
+	--bs-tooltip-padding-y: 0.1rem;
+	--bs-tooltip-padding-x: 0.2rem;
+	--bs-tooltip-border-radius: 2.5px;
+	--bs-tooltip-opacity: .8;
+	--bs-tooltip-font-size: 11px;
+
+	padding-bottom: 1em;
+
+	.tooltip-arrow {
+		display: none;
+	}
+}

@@ -8,10 +8,11 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-  <body>
-    <main class="col-7 bg-secondary min-vh-100 w-100 bg-dark">
+  <body data-controller='bootstrap'>
+    <%= render 'components/header' %>
+    <main>
       <%= yield %>
+      <%= render "components/navbar" %>
     </main>
-    <%= render "components/navbar" %>
   </body>
 </html>
