@@ -1,5 +1,3 @@
-module Authenticate
-  class NotificationsController < AuthenticateController
-    def index; end
-  end
+class Authenticate::NotificationsController < AuthenticateController
+  def index; end
 end

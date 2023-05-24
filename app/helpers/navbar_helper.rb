@@ -1,6 +1,6 @@
 module NavbarHelper
   def nav_item(path: root_path, controller_target: 'main', icon: 'app')
-    active = controller_name == controller_target
+    active = current_controller?([controller_target])
 
     content_tag(:li, class: 'nav-item') do
       link_to(path, class: active ? 'nav-link active' : 'nav-link', data: tooltip_data(controller_target:)) do

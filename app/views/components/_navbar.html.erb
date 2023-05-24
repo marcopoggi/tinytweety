@@ -1,19 +1,13 @@
-<div class="custom--navbar text-warning nav bg-black fs-3 border-top border-secondary">
-  <%= nav_item(path: root_path, controller_target: 'main', icon: 'house') %>
-  <%= nav_item(path: explore_path, controller_target: 'search', icon: 'search') %>
-  <%= nav_item(path: notifications_path, controller_target: 'notifications', icon: 'bell') %>
-  <%= nav_item(path: messages_path, controller_target: 'messages', icon: 'envelope') %>
-</div> 
-
-<%# <div class="tooltip custom--navbar-tooltip bs-tooltip-auto fade show"
-     role="tooltip"
-     id="tooltip124824"
-     style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate(562px, -56px);"
-     data-popper-placement="top">
-  <div class="tooltip-arrow"
-       style="position: absolute; left: 0px; transform: translate(39px);">
+<% if current_user %>
+  <div class="custom--navbar text-warning nav bg-black fs-3 border-top border-secondary">
+      <%= nav_item(path: root_path, controller_target: 'main', icon: 'house') %>
+      <%= nav_item(path: explore_path, controller_target: 'search', icon: 'search') %>
+      <%= nav_item(path: notifications_path, controller_target: 'notifications', icon: 'bell') %>
+      <%= nav_item(path: messages_path, controller_target: 'messages', icon: 'envelope') %>
   </div>
-  <div class="tooltip-inner">
-    Messages
+<% elsif current_user.nil? && !current_controller?(['sessions', 'passwords', 'registrations']) %>
+  <div class="custom--navbar nav bg-black fs-3 p-3 gap-3 border-top border-secondary">
+    <%= custom_button(content: "Sign in", path: new_user_session_path, button_class:"session--button text-warning bg-transparent") %>
+    <%= custom_button(content: "Sign up", path: new_user_registration_path, button_class:"session--button text-white bg-warning")  %>
   </div>
-</div> %>
+<% end%>

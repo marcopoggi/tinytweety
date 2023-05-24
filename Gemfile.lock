@@ -110,6 +110,7 @@ GEM
     ffi (1.15.5)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    htmlbeautifier (1.4.2)
     i18n (1.13.0)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.1.6)
@@ -287,6 +288,7 @@ GEM
     zeitwerk (2.6.8)
 
 PLATFORMS
+  x86_64-linux
   x86_64-linux-musl
 
 DEPENDENCIES
@@ -295,6 +297,7 @@ DEPENDENCIES
   capybara
   debug
   devise
+  htmlbeautifier
   importmap-rails
   jbuilder
   pg (~> 1.1)

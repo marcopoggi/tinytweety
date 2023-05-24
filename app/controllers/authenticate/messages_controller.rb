@@ -1,5 +1,3 @@
-module Authenticate
-  class MessagesController < AuthenticateController
-    def index; end
-  end
+class Authenticate::MessagesController < AuthenticateController
+  def index; end
 end
